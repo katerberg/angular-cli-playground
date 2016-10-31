@@ -5,9 +5,11 @@ import {HttpModule} from '@angular/http';
 import {MaterialModule} from '@angular/material';
 
 import {AppComponent} from './app.component';
+import {PlayerListComponent} from './player-list/player-list.component';
 
 @NgModule({
   declarations: [
+    PlayerListComponent,
     AppComponent,
   ],
   imports: [

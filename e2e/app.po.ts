@@ -6,6 +6,6 @@ export class MyDreamAppPage {
   }
 
   getParagraphText() {
-    return element(by.css('app-root h1')).getText();
+    return element(by.css('app-root md-toolbar-row')).getText();
   }
 }

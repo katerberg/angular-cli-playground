@@ -9,6 +9,6 @@ describe('my-dream-app App', function() {
 
   it('should display message saying app works', () => {
     page.navigateTo();
-    expect(page.getParagraphText()).toEqual('Hello World!');
+    expect(page.getParagraphText()).toEqual('Initiative Tracker');
   });
 });

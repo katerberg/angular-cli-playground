@@ -1,38 +1,34 @@
 import {TestBed, async} from '@angular/core/testing';
 import {MaterialModule} from '@angular/material';
-import {AppComponent} from './app.component';
 
-describe('App: MyDreamApp', () => {
+import {AppComponent} from './app.component';
+import {PlayerListComponent} from './player-list/player-list.component';
+
+describe('App: Initiative Tracker', () => {
+  let fixture;
+
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [MaterialModule],
       declarations: [
         AppComponent,
+        PlayerListComponent,
+      ],
+      imports: [
+        MaterialModule,
       ],
     });
+    fixture = TestBed.createComponent(AppComponent);
   });
 
   it('should create the app', async(() => {
-    const fixture = TestBed.createComponent(AppComponent);
-
     const app = fixture.debugElement.componentInstance;
 
     expect(app).toBeTruthy();
   }));
 
   it('should have a title', async(() => {
-    const fixture = TestBed.createComponent(AppComponent);
-
     const app = fixture.debugElement.componentInstance;
 
-    expect(app.title).toEqual('Hello World!');
-  }));
-
-  it('should render title in a header', async(() => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-
-    const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('md-toolbar').textContent).toContain('Hello World!');
+    expect(app.title).toEqual('Initiative Tracker');
   }));
 });

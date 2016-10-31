@@ -2,8 +2,13 @@ import {Component} from '@angular/core';
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html',
+  template: `
+    <md-toolbar color="primary">
+      {{title}}
+    </md-toolbar>
+    <app-player-list></app-player-list>
+  `,
 })
 export class AppComponent {
-  title = 'Hello World!';
+  title = 'Initiative Tracker';
 }
