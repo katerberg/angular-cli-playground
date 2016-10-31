@@ -1,5 +1,3 @@
-/* tslint:disable:no-unused-variable */
-
 import {TestBed, async} from '@angular/core/testing';
 import {MaterialModule} from '@angular/material';
 import {AppComponent} from './app.component';
@@ -9,7 +7,7 @@ describe('App: MyDreamApp', () => {
     TestBed.configureTestingModule({
       imports: [MaterialModule],
       declarations: [
-        AppComponent
+        AppComponent,
       ],
     });
   });
