@@ -10,6 +10,10 @@ describe('Service: Player', () => {
     });
   });
 
+  it('is injectable', inject([PlayerService], (service: PlayerService) => {
+    expect(service instanceof PlayerService).toBeTruthy();
+  }));
+
   describe('#getPlayers()', () => {
     let serviceUnderTest;
     beforeEach(inject([PlayerService], (service: PlayerService) => {

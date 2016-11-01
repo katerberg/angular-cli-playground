@@ -1,5 +1,8 @@
-import {TestBed, async} from '@angular/core/testing';
+import {async, inject, TestBed} from '@angular/core/testing';
+
 import {PlayerListComponent} from './player-list.component';
+import {PlayerService} from '../player.service';
+import {Player} from '../player';
 
 describe('Component: PlayerList', () => {
   beforeEach(() => {
@@ -7,16 +10,29 @@ describe('Component: PlayerList', () => {
       declarations: [
         PlayerListComponent,
       ],
+      providers: [
+        PlayerService,
+      ],
     });
   });
 
-  it('creates an instance', async(() => {
-    const component = new PlayerListComponent();
-    expect(component).toBeTruthy();
-  }));
+  describe('initialization', () => {
+    it('creates an instance', () => {
+      const fixture = TestBed.createComponent(PlayerListComponent);
 
-  it('exposes player list', async(() => {
-    const component = new PlayerListComponent();
-    expect(component.players).toEqual(['test1', 'test2']);
-  }));
+      expect(fixture.componentInstance instanceof PlayerListComponent).toBeTruthy();
+    });
+
+    it('populates players', async(inject([PlayerService], (playerService: PlayerService) => {
+      const expectedPlayers = [new Player(), new Player()];
+      spyOn(playerService, 'getPlayers').and.returnValue(Promise.resolve(expectedPlayers));
+
+      const fixture = TestBed.createComponent(PlayerListComponent);
+      fixture.detectChanges();
+
+      fixture.whenStable().then(() => {
+        expect(fixture.componentInstance.players).toEqual(expectedPlayers);
+      });
+    })));
+  });
 });

@@ -6,6 +6,7 @@ import {MaterialModule} from '@angular/material';
 
 import {AppComponent} from './app.component';
 import {PlayerListComponent} from './player-list/player-list.component';
+import {PlayerService} from './player.service';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,9 @@ import {PlayerListComponent} from './player-list/player-list.component';
     HttpModule,
     MaterialModule.forRoot(),
   ],
-  providers: [],
+  providers: [
+    PlayerService,
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
