@@ -1,4 +1,5 @@
 import {async, inject, TestBed} from '@angular/core/testing';
+import {MaterialModule} from '@angular/material';
 
 import {PlayerListComponent} from './player-list.component';
 import {PlayerService} from '../player.service';
@@ -9,6 +10,9 @@ describe('Component: PlayerList', () => {
     TestBed.configureTestingModule({
       declarations: [
         PlayerListComponent,
+      ],
+      imports: [
+        MaterialModule,
       ],
       providers: [
         PlayerService,
