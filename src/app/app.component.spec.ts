@@ -1,6 +1,7 @@
 import {TestBed, async} from '@angular/core/testing';
 import {MaterialModule} from '@angular/material';
 
+import {RoutingModule} from './routing.module';
 import {AppComponent} from './app.component';
 import {PlayerListComponent} from './player-list/player-list.component';
 import {PlayerService} from './player.service';
@@ -16,6 +17,7 @@ describe('App: Initiative Tracker', () => {
       ],
       imports: [
         MaterialModule,
+        RoutingModule,
       ],
       providers: [
         PlayerService,

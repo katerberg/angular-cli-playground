@@ -6,7 +6,7 @@ import {Component} from '@angular/core';
     <md-toolbar color="primary">
       {{title}}
     </md-toolbar>
-    <app-player-list></app-player-list>
+    <router-outlet></router-outlet>
   `,
 })
 export class AppComponent {
