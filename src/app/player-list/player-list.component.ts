@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+import {Router} from '@angular/router';
 
 import {PlayerService} from '../player.service';
 import {Player} from '../player';
@@ -7,7 +8,7 @@ import {Player} from '../player';
   selector: 'app-player-list',
   template: `
     <div *ngIf="players">
-      <md-card *ngFor="let player of players">
+      <md-card *ngFor="let player of players" (click)="goToDetail(player)">
         <h1>{{player.character}}</h1>
         <h2>{{player.name}}</h2>
       </md-card>
@@ -30,11 +31,15 @@ import {Player} from '../player';
 export class PlayerListComponent implements OnInit {
   players: Player[];
 
-  constructor(private playerService: PlayerService) {}
+  constructor(private playerService: PlayerService, private router: Router) {}
 
   ngOnInit(): void {
     this.playerService.getPlayers().then((players: Player[]) => {
       this.players = players;
     });
+  }
+
+  goToDetail(player: Player) {
+    this.router.navigate(['/players', player.id]);
   }
 }

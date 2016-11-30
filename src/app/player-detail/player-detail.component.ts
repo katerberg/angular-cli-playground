@@ -6,10 +6,19 @@ import {ActivatedRoute, Params} from '@angular/router';
 @Component({
   selector: 'app-player-detail',
   template: `
-    <p *ngIf="player">
-      {{player.name}}
-    </p>
+    <div class="player-detail" *ngIf="player">
+      <h1>{{player.character}}</h1>
+      <h2>{{player.name}}</h2>
+    </div>
   `,
+  styles: [`
+    .player-detail {
+      margin-left: 8px;
+    }
+    h2 {
+      margin-left: 16px;
+    }
+  `],
 })
 export class PlayerDetailComponent implements OnInit {
   player: Player;
