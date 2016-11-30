@@ -1,18 +1,20 @@
-import {TestBed, async} from '@angular/core/testing';
+import {TestBed, async, ComponentFixture} from '@angular/core/testing';
 import {MaterialModule} from '@angular/material';
 
-import {RoutingModule} from './routing.module';
+import {RoutingModule} from './routing-module/routing.module';
 import {AppComponent} from './app.component';
+import {PlayerDetailComponent} from './player-detail/player-detail.component';
 import {PlayerListComponent} from './player-list/player-list.component';
 import {PlayerService} from './player.service';
 
 describe('App: Initiative Tracker', () => {
-  let fixture;
+  let fixture: ComponentFixture<AppComponent>;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
       declarations: [
         AppComponent,
+        PlayerDetailComponent,
         PlayerListComponent,
       ],
       imports: [

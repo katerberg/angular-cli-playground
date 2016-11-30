@@ -5,14 +5,16 @@ import {HttpModule} from '@angular/http';
 import {MaterialModule} from '@angular/material';
 
 import {AppComponent} from './app.component';
+import {PlayerDetailComponent} from './player-detail/player-detail.component';
 import {PlayerListComponent} from './player-list/player-list.component';
 import {PlayerService} from './player.service';
-import {RoutingModule} from './routing.module';
+import {RoutingModule} from './routing-module/routing.module';
 
 @NgModule({
   declarations: [
-    PlayerListComponent,
     AppComponent,
+    PlayerDetailComponent,
+    PlayerListComponent,
   ],
   imports: [
     BrowserModule,

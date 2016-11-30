@@ -30,12 +30,10 @@ import {Player} from '../player';
 export class PlayerListComponent implements OnInit {
   players: Player[];
 
-  constructor(
-    private playerService: PlayerService,
-  ) {}
+  constructor(private playerService: PlayerService) {}
 
   ngOnInit(): void {
-    this.playerService.getPlayers().then(players => {
+    this.playerService.getPlayers().then((players: Player[]) => {
       this.players = players;
     });
   }

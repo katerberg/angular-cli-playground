@@ -1,4 +1,4 @@
-import {async, inject, TestBed} from '@angular/core/testing';
+import {async, inject, TestBed, ComponentFixture} from '@angular/core/testing';
 import {MaterialModule} from '@angular/material';
 
 import {PlayerListComponent} from './player-list.component';
@@ -22,16 +22,16 @@ describe('Component: PlayerList', () => {
 
   describe('initialization', () => {
     it('creates an instance', () => {
-      const fixture = TestBed.createComponent(PlayerListComponent);
+      const fixture: ComponentFixture<PlayerListComponent> = TestBed.createComponent(PlayerListComponent);
 
       expect(fixture.componentInstance instanceof PlayerListComponent).toBeTruthy();
     });
 
     it('populates players', async(inject([PlayerService], (playerService: PlayerService) => {
-      const expectedPlayers = [new Player(), new Player()];
+      const expectedPlayers: Player[] = [new Player(), new Player()];
       spyOn(playerService, 'getPlayers').and.returnValue(Promise.resolve(expectedPlayers));
 
-      const fixture = TestBed.createComponent(PlayerListComponent);
+      const fixture: ComponentFixture<PlayerListComponent> = TestBed.createComponent(PlayerListComponent);
       fixture.detectChanges();
 
       fixture.whenStable().then(() => {
